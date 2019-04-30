@@ -1,0 +1,7 @@
+C:\Users\Drew\Documents\Visual Studio 2017\Projects\ZorgPractice\ZorgPractice\obj\Debug\ZorgPractice.csprojAssemblyReference.cache
+C:\Users\Drew\Documents\Visual Studio 2017\Projects\ZorgPractice\ZorgPractice\obj\Debug\ZorgPractice.csproj.CoreCompileInputs.cache
+C:\Users\Drew\Documents\Visual Studio 2017\Projects\ZorgPractice\ZorgPractice\bin\Debug\ZorgPractice.exe.config
+C:\Users\Drew\Documents\Visual Studio 2017\Projects\ZorgPractice\ZorgPractice\bin\Debug\ZorgPractice.exe
+C:\Users\Drew\Documents\Visual Studio 2017\Projects\ZorgPractice\ZorgPractice\bin\Debug\ZorgPractice.pdb
+C:\Users\Drew\Documents\Visual Studio 2017\Projects\ZorgPractice\ZorgPractice\obj\Debug\ZorgPractice.exe
+C:\Users\Drew\Documents\Visual Studio 2017\Projects\ZorgPractice\ZorgPractice\obj\Debug\ZorgPractice.pdb
