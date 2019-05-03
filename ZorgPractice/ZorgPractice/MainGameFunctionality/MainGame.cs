@@ -4,63 +4,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZorgPractice
+namespace ZorgPractice.MainGameFunctionality
 {
-	class Program
+	internal class MainGame // Chris Gray Worthy
 	{
-		
-
-		static void Main()
+		#region Constructor
+		internal MainGame()
 		{
-
-			
-			
-
-			// The void
-
-			SecondProgram secondProgram = new SecondProgram();
-
-			secondProgram.Beginning();
-
-
-
-
-
-
-
-
-
-
-
 
 		}
+		#endregion
 
-	}
+		#region Propertys
 
-	public class SecondProgram
-	{
-		// Global Strings
+		#endregion
 
+		#region Public Methods
 
+		#endregion
 
-		// Global Integers
-		int playerCoins = 5;
-
-
-		public void Beginning()
+		#region Internal Methods
+		internal void Beginning()
 		{
-
-			string beginningInput = "";
-
 			Console.WriteLine("Welcome to the Zorg Game! Press enter the e key to start q key to quit or the c key to view controls.");
 
-
-			beginningInput = Console.ReadLine();
+			string beginningInput = Console.ReadLine();
 
 			if (beginningInput == "e")
 			{
-				/*Console.WriteLine("User pressed e!");
-				Console.ReadLine();*/
 				Console.Clear();
 				Phase1();
 			}
@@ -76,20 +47,14 @@ namespace ZorgPractice
 				Controls();
 			}
 
-
 			if (beginningInput != "e" || beginningInput != "q" || beginningInput != "c")
 			{
-
 				Console.WriteLine("Invalid Key, please try again.");
-
 				Beginning();
-
 			}
-
-
 		}
 
-		public void Phase1()
+		internal void Phase1()
 		{
 			string inputAction;
 
@@ -110,9 +75,6 @@ namespace ZorgPractice
 					Console.ReadLine();
 					Console.Clear();
 					Phase1();
-
-					//inputAction = Console.ReadLine();
-
 					break;
 
 				case "go left":
@@ -137,49 +99,16 @@ namespace ZorgPractice
 					Console.Clear();
 					Phase1();
 					break;
-
 			}
-
-
-
-
-			/*if (inputAction == "go forward")
-			{
-				Console.WriteLine("I am going forward somewhere dunno yet\n");
-				inputAction = Console.ReadLine();
-			}
-			if (inputAction == "go backward")
-			{
-				Console.WriteLine("There is nothing behind you except more of the village. Perhaps you should go and help with the ogre problem.\n");
-				inputAction = Console.ReadLine();
-			}
-			if (inputAction == "go left")
-			{
-
-				Console.WriteLine("You enter the local village shop, here you can buy all sorts of items that you might need on your adventures\n");
-				inputAction = Console.ReadLine();
-			}
-
-			if (inputAction == "go right")
-			{
-				Console.WriteLine("You see a villagers home, it is locked.");
-				inputAction = Console.ReadLine();
-			}
-
-			if (inputAction == "q")
-			{
-				Environment.Exit(0);
-			}*/
 		}
 
-		public void P1Forest()
+		internal void P1Forest()
 		{
 			Console.WriteLine("You are now in the forest gg wp");
 			Console.ReadLine();
 		}
 
-
-		public void Controls()
+		internal void Controls()
 		{
 			string leaveControls;
 
@@ -205,7 +134,6 @@ namespace ZorgPractice
 			}
 			else
 			{
-
 				Console.WriteLine("CONTROLS invalid key, please try again");
 				Console.ReadLine();
 				Console.Clear();
@@ -213,14 +141,10 @@ namespace ZorgPractice
 			}
 
 			// ERROR HERE: Need the if statement to loop over without the options displaying again IF the key is not c
-
-
-
 		}
 
-		public void P1Shop()
+		internal void P1Shop()
 		{
-
 			int purchaseHealthPotion = 5;
 			int purchaseWoodenBow = 10;
 			int purchaseQuiver = 10;
@@ -235,7 +159,6 @@ namespace ZorgPractice
 			Console.WriteLine("Currently you have " + playerCoins + " coins");
 			Console.WriteLine("The shop keeper asks 'Would you like to purchase something?'");
 
-
 			inputPurchase = Console.ReadLine();
 
 			switch (inputPurchase)
@@ -244,8 +167,9 @@ namespace ZorgPractice
 					if (purchaseHealthPotion <= playerCoins)
 					{
 						playerCoins = playerCoins - purchaseHealthPotion;
-						Console.WriteLine("\nCongratulations! You purchased a Health Potion!");
-						Console.WriteLine("You now currently have 2 Health Potions!\n"); // This will be later replaced by the array for the inventory.
+						Console.WriteLine("\nCongratulations! You purchased a ");
+						noOfHealthPotionsInInventory += 1;
+						Console.WriteLine("You now currently have " + noOfHealthPotionsInInventory + " Health Potions!\n"); // This will be later replaced by the array for the inventory.
 						Console.WriteLine("You now have " + playerCoins + " coins remaining");
 						Console.ReadLine();
 						Console.Clear();
@@ -258,7 +182,6 @@ namespace ZorgPractice
 						Console.Clear();
 						P1Shop();
 					}
-
 					break;
 
 				case "purchase wooden bow": // 10 coins
@@ -269,7 +192,6 @@ namespace ZorgPractice
 						Console.WriteLine("You are now in possession of a Wooden Bow!");
 						Console.WriteLine("You now have " + playerCoins + " coins remaining");
 						Console.ReadLine();
-
 					}
 					else
 					{
@@ -290,7 +212,6 @@ namespace ZorgPractice
 						Console.ReadLine();
 						Console.Clear();
 						P1Shop();
-
 					}
 					else
 					{
@@ -311,7 +232,6 @@ namespace ZorgPractice
 						Console.ReadLine();
 						Console.Clear();
 						P1Shop();
-
 					}
 					else
 					{
@@ -345,7 +265,6 @@ namespace ZorgPractice
 						Console.Clear();
 						P1Shop();
 					}
-
 					break;
 
 				default:
@@ -354,26 +273,41 @@ namespace ZorgPractice
 					Console.Clear();
 					P1Shop();
 					break;
-
-
-
-
 			}
 			//TODO: Create inventory array for items, Make variables in function global, make function cleaner
 		}
 
-
-
-
-		public void Exit()
+		internal void Exit()
 		{
 			string isExitButtonPressed = Console.ReadLine();
 
 			if (isExitButtonPressed == "q")
 				Environment.Exit(0);
-
 		}
+		#endregion
+
+		#region Private Methods
+
+		#endregion
+
+		#region Fields
+		private string HealthPotionInInventory = "Health Potion";
+
+		private int playerCoins = 5;
+		private int noOfHealthPotionsInInventory = 1;
+		#endregion
+
+		#region Constants
+
+		#endregion
+
+
+
+		
+
+
+
 
 	}
-
 }
+
