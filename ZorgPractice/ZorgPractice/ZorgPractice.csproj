@@ -42,12 +42,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ItemSystem\Armour.cs" />
+    <Compile Include="ItemSystem\Consumable.cs" />
+    <Compile Include="ItemSystem\Item.cs" />
+    <Compile Include="ItemSystem\Weapon.cs" />
     <Compile Include="MainGameFunctionality\MainGame.cs" />
     <Compile Include="MainGameFunctionality\Program.cs" />
+    <Compile Include="Player\Character.cs" />
+    <Compile Include="Player\Inventory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CommonFunctionality\" />
+    <Folder Include="Configuration\" />
+    <Folder Include="MainGameFunctionality\StateMachine\States\" />
+    <Folder Include="NPCS\" />
+    <Folder Include="World\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

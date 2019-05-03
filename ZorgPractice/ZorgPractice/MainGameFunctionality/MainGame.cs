@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZorgPractice.ItemSystem;
+using ZorgPractice.Player;
 
 namespace ZorgPractice.MainGameFunctionality
 {
@@ -11,7 +13,7 @@ namespace ZorgPractice.MainGameFunctionality
 		#region Constructor
 		internal MainGame()
 		{
-
+	
 		}
 		#endregion
 
@@ -26,6 +28,22 @@ namespace ZorgPractice.MainGameFunctionality
 		#region Internal Methods
 		internal void Beginning()
 		{
+			Inventory squid = new Inventory();
+			Weapon drew = new Weapon(9001, 1);
+			Armour aaron = new Armour(2, 10000);
+			aaron.ItemName = "Mad@Squid";
+			drew.ItemName = "Bronze Sword";
+
+			squid.Add(aaron, 1);
+			squid.Add(drew, 5);
+			foreach (Item item in squid._ItemCollection.Keys)
+			{
+				Console.WriteLine($"Player has found {squid._ItemCollection[item]} {item.ItemName}");
+
+			}
+
+
+
 			Console.WriteLine("Welcome to the Zorg Game! Press enter the e key to start q key to quit or the c key to view controls.");
 
 			string beginningInput = Console.ReadLine();
