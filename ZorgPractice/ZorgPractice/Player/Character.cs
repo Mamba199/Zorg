@@ -11,12 +11,12 @@ namespace ZorgPractice.Player
 		#region Constructor
 		internal Character()
 		{
-
+			Inventory = new Inventory();
 		}
 		#endregion
 
 		#region Properties
-		public Inventory Inventory { get; set; }
+		public Inventory Inventory { get; }
 		#endregion
 
 

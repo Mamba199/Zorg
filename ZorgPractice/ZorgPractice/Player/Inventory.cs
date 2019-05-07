@@ -12,19 +12,23 @@ namespace ZorgPractice.Player
 		#region Constructor
 		public Inventory()
 		{
-			_ItemCollection = new Dictionary<Item, int>();
+			ItemCollection = new Dictionary<Item, int>();
 		}
 		#endregion
 
 		#region Fields
-		public Dictionary<Item, int> _ItemCollection;
+		
 		#endregion
 
 		#region Internal Methods
 		internal void Add(Item itemToAdd, int quantity)
 		{
-			_ItemCollection.Add(itemToAdd, quantity);
+			ItemCollection.Add(itemToAdd, quantity);
 		}
+		#endregion
+
+		#region Properties
+		public Dictionary<Item, int> ItemCollection { get; }
 		#endregion
 	}
 }

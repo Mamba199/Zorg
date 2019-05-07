@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZorgPractice.CommonFunctionality;
 using ZorgPractice.ItemSystem;
 using ZorgPractice.Player;
 
@@ -13,7 +14,7 @@ namespace ZorgPractice.MainGameFunctionality
 		#region Constructor
 		internal MainGame()
 		{
-	
+			_Player = new Character();
 		}
 		#endregion
 
@@ -28,18 +29,17 @@ namespace ZorgPractice.MainGameFunctionality
 		#region Internal Methods
 		internal void Beginning()
 		{
-			Inventory playerInventory = new Inventory();
-			Weapon _IronSword = new Weapon(9001, 1);
-			Armour _IronArmour = new Armour(2, 10000);
+			
+			Weapon _IronSword = new Weapon(9001, 1, WeaponType.Sword);
+			Armour _IronArmourHelm = new Armour(2, 10000, ArmourType.Helm);
 
-			_IronArmour.ItemName = "Iron Armour";
+			_IronArmourHelm.ItemName = "Iron Armour Helm";
 			_IronSword.ItemName = "Iron Sword";
-
-			playerInventory.Add(_IronArmour, 1);
-			playerInventory.Add(_IronSword, 5);
-			foreach (Item item in playerInventory._ItemCollection.Keys)
+			_Player.Inventory.Add(_IronArmourHelm, 1);
+			_Player.Inventory.Add(_IronSword, 5);
+			foreach (Item item in _Player.Inventory.ItemCollection.Keys)
 			{
-				Console.WriteLine($"Player has found {playerInventory._ItemCollection[item]} {item.ItemName}");
+				Console.WriteLine($"Player has found {_Player.Inventory.ItemCollection[item]} {item.ItemName}");
 			}
 
 
@@ -208,17 +208,16 @@ namespace ZorgPractice.MainGameFunctionality
 						playerCoins = playerCoins - purchaseWoodenBow;
 						Console.WriteLine("\nCongratulations! You have purchased a Wooden Bow!");
 
-						Inventory playerInventory = new Inventory();
-						Weapon _WoodenBow = new Weapon(9001, 1);
-						Armour _IronArmour = new Armour(2, 10000);
+						Inventory _Player = new Inventory();
+						Weapon _WoodenBow = new Weapon(9001, 1, WeaponType.Bow);
 
 						_WoodenBow.ItemName = "Wooden Bow";
 
-						playerInventory.Add(_WoodenBow, 1);
+						_Player.Add(_WoodenBow, 1);
 
-						foreach (Item item in playerInventory._ItemCollection.Keys)
+						foreach (Item item in _Player.ItemCollection.Keys)
 						{
-							Console.WriteLine($"Player has added {playerInventory._ItemCollection[item]} {item.ItemName} to their inventory");
+							Console.WriteLine($"Player has added {_Player.ItemCollection[item]} {item.ItemName} to their inventory");
 						}
 
 						Console.WriteLine("You now have " + playerCoins + " coins remaining");
@@ -241,7 +240,7 @@ namespace ZorgPractice.MainGameFunctionality
 						playerCoins = playerCoins - purchaseQuiver;
 						Console.WriteLine("\nCongratulations! You have purchased a Quiver!");
 
-						Armour _Quiver = new Armour(10, 2);
+						Weapon _Quiver = new Weapon(0, 10, WeaponType.Quiver);
 
 						_Quiver.ItemName = "Quiver";
 
@@ -334,6 +333,8 @@ namespace ZorgPractice.MainGameFunctionality
 
 		private int playerCoins = 10;
 		private int noOfHealthPotionsInInventory = 1;
+
+		private Character _Player;
 		#endregion
 
 		#region Constants
