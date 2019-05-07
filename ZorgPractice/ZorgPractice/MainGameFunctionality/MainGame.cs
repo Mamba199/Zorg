@@ -28,18 +28,18 @@ namespace ZorgPractice.MainGameFunctionality
 		#region Internal Methods
 		internal void Beginning()
 		{
-			Inventory squid = new Inventory();
-			Weapon drew = new Weapon(9001, 1);
-			Armour aaron = new Armour(2, 10000);
-			aaron.ItemName = "Mad@Squid";
-			drew.ItemName = "Bronze Sword";
+			Inventory playerInventory = new Inventory();
+			Weapon _IronSword = new Weapon(9001, 1);
+			Armour _IronArmour = new Armour(2, 10000);
 
-			squid.Add(aaron, 1);
-			squid.Add(drew, 5);
-			foreach (Item item in squid._ItemCollection.Keys)
+			_IronArmour.ItemName = "Iron Armour";
+			_IronSword.ItemName = "Iron Sword";
+
+			playerInventory.Add(_IronArmour, 1);
+			playerInventory.Add(_IronSword, 5);
+			foreach (Item item in playerInventory._ItemCollection.Keys)
 			{
-				Console.WriteLine($"Player has found {squid._ItemCollection[item]} {item.ItemName}");
-
+				Console.WriteLine($"Player has found {playerInventory._ItemCollection[item]} {item.ItemName}");
 			}
 
 
@@ -207,9 +207,24 @@ namespace ZorgPractice.MainGameFunctionality
 					{
 						playerCoins = playerCoins - purchaseWoodenBow;
 						Console.WriteLine("\nCongratulations! You have purchased a Wooden Bow!");
-						Console.WriteLine("You are now in possession of a Wooden Bow!");
+
+						Inventory playerInventory = new Inventory();
+						Weapon _WoodenBow = new Weapon(9001, 1);
+						Armour _IronArmour = new Armour(2, 10000);
+
+						_WoodenBow.ItemName = "Wooden Bow";
+
+						playerInventory.Add(_WoodenBow, 1);
+
+						foreach (Item item in playerInventory._ItemCollection.Keys)
+						{
+							Console.WriteLine($"Player has added {playerInventory._ItemCollection[item]} {item.ItemName} to their inventory");
+						}
+
 						Console.WriteLine("You now have " + playerCoins + " coins remaining");
 						Console.ReadLine();
+
+						
 					}
 					else
 					{
@@ -225,7 +240,13 @@ namespace ZorgPractice.MainGameFunctionality
 					{
 						playerCoins = playerCoins - purchaseQuiver;
 						Console.WriteLine("\nCongratulations! You have purchased a Quiver!");
-						Console.WriteLine("You are now in possession of a Quiver!");
+
+						Armour _Quiver = new Armour(10, 2);
+
+						_Quiver.ItemName = "Quiver";
+
+						
+						
 						Console.WriteLine("You now have " + playerCoins + " coins remaining");
 						Console.ReadLine();
 						Console.Clear();
@@ -311,7 +332,7 @@ namespace ZorgPractice.MainGameFunctionality
 		#region Fields
 		private string HealthPotionInInventory = "Health Potion";
 
-		private int playerCoins = 5;
+		private int playerCoins = 10;
 		private int noOfHealthPotionsInInventory = 1;
 		#endregion
 
