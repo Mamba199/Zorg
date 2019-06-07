@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonFunctionality\ItemTypes.cs" />
+    <Compile Include="CommonFunctionality\States\BaseState.cs" />
+    <Compile Include="CommonFunctionality\States\Istate.cs" />
     <Compile Include="ItemSystem\Armour.cs" />
     <Compile Include="ItemSystem\Consumable.cs" />
     <Compile Include="ItemSystem\Item.cs" />
@@ -57,6 +59,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="CommonFunctionality\StateMachines\" />
     <Folder Include="Configuration\" />
     <Folder Include="MainGameFunctionality\StateMachine\States\" />
     <Folder Include="NPCS\" />
